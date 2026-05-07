@@ -28,11 +28,18 @@ ament_auto_add_library(${COMPONENT_NAME} SHARED ./src/laser_scan_merger.cpp)
 target_include_directories(${COMPONENT_NAME} PUBLIC include)
 rclcpp_components_register_nodes(${COMPONENT_NAME} "util::LaserScanMerger")
 
+ament_auto_add_executable(laser_scan_merger_node ./src/laser_scan_merger_node.cpp)
+target_link_libraries(laser_scan_merger_node ${COMPONENT_NAME})
+
 # install
 install(TARGETS ${COMPONENT_NAME}
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
+)
+
+install(TARGETS laser_scan_merger_node
+  RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
 
 install(DIRECTORY launch config rviz test
