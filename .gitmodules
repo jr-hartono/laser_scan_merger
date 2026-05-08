@@ -1,3 +1,0 @@
-[submodule "test/demo_scan_rosbag"]
-	path = test/demo_scan_rosbag
-	url = https://github.com/BruceChanJianLe/demo_scan_rosbag.git
